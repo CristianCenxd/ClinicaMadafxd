@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Gateway - Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Vista de Login (Inicial) -->
+        <div id="login-view">
+            <div class="form-wrapper">
+                <h2>Iniciar Sesión</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p class="toggle-link">¿No tienes cuenta? <a href="#" id="show-register">Crea una aquí</a></p>
+            </div>
+        </div>
+
+        <!-- Vista de Registro (Oculta) -->
+        <div id="register-view" class="hidden">
+            <div class="form-wrapper">
+                <h2>Registrar Usuario</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerNombre" placeholder="Nombre Completo" required>
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                    <input type="password" id="registerPassword" placeholder="Contraseña" required>
+                    <select id="registerRol" required>
+                        <option value="" disabled selected>Selecciona un Rol</option>
+                        <option value="Medico">Médico</option>
+                        <option value="Paciente">Paciente</option>
+                        <option value="Cajero">Cajero</option>
+                        <option value="Farmaceutico">Farmacéutico</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <button type="submit">Registrar</button>
+                </form>
+                <p class="toggle-link">¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+            </div>
+        </div>
+
+        <!-- Vista de la Aplicación (Oculta) -->
+        <div id="app-view" class="hidden">
+            <div class="app-header">
+                <h2>Aplicación Protegida</h2>
+                <button id="logoutBtn">Cerrar Sesión</button>
+            </div>
+            <div class="test-area">
+                <h3>Probar Rutas Protegidas</h3>
+                <p>Estás dentro. Ahora puedes probar los accesos según tu rol.</p>
+                <div class="buttons">
+                    <button id="testMedico">Acceso Médicos</button>
+                    <button id="testPaciente">Acceso Pacientes</button>
+                    <button id="testCajero">Acceso Cajeros</button>
+                    <button id="testFarmaceutico">Acceso Farmacéuticos</button>
+                    <button id="testAdmin">Acceso Admin</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Mensajes -->
+          <div id="modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="modal-close">&times;</button>
+                <h3 id="modal-title"></h3>
+                <p id="modal-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
